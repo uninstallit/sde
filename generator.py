@@ -36,7 +36,7 @@ class DiffusionSampler(tf.keras.utils.Sequence):
 
     def __getitem__(self, index):
         image_idxs = np.random.randint(self.sample_size - 1, size=self.number_images)
-        rand_steps = np.reshape(np.random.randint(self.max_steps-1, size=(self.height * self.number_images)), (self.number_images, self.height))
+        rand_steps = np.reshape(np.random.randint(0, self.max_steps-1, size=(self.height * self.number_images)), (self.number_images, self.height))
         batch_imgs = self.x[image_idxs]
 
         batch_x0 = []
