@@ -135,10 +135,10 @@ def main():
     sigma = lambda x, t: 10.0
 
     tmin = 0
-    tmax = 10
+    tmax = 1
     dt = 0.01
 
-    batch_size = 2
+    batch_size = 1
     epochs = 1
 
     diffusion = ForwardDiffusion(mu, sigma, tmin, tmax, dt, length)
@@ -155,8 +155,8 @@ def main():
         diffusion, score_function, mu, sigma, tmin, tmax, dt, length, batch_size
     )
 
-    # !does not build
-    # conditioned_diffusion.build(input_shape=(None, length))
+    # !does not build - too big
+    conditioned_diffusion.build(input_shape=(None, length))
 
     conditioned_diffusion.compile(optimizer=keras.optimizers.Adam())
     conditioned_diffusion.fit(
