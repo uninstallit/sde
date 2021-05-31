@@ -108,6 +108,7 @@ class ConditionDiffusion(keras.Model):
 
             forward_diffusion = self.diffusion(images)
             reverse_diffusion = self(forward_diffusion, training=True)
+            # todo: reverse diffusion order
             reconstruction_loss = tf.reduce_sum(
                 keras.losses.MSE(forward_diffusion, reverse_diffusion), axis=1
             )
