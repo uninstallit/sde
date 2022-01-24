@@ -1,0 +1,7 @@
+{
+  "python.pythonPath": "/bin/python3.8",
+  "python.analysis.extraPaths": [
+    "./mnt/c/Users/Edvin/Desktop/sde-image/sde-image-generation/"
+  ],
+  "python.formatting.provider": "black",
+}
